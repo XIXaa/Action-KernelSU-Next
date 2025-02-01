@@ -20,7 +20,7 @@ on:
         default: 'android14'
       KERNEL_VERSION:
         description: "内核版本"
-        required: true
+        required: false
         default: '6.1'
 
 jobs:
