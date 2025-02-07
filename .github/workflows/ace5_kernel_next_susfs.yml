@@ -1,4 +1,4 @@
-name: Build KernelSU Next
+name: Build ace5 KernelSU Next susfs
 on:
   workflow_dispatch:
   
