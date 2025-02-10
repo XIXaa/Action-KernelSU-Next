@@ -127,11 +127,11 @@ jobs:
        #  rm -rf ./AnyKernel3/.git
         # cp kernel_workspace/kernel_platform/out/msm-kernel-${{ github.event.inputs.CPUD }}-gki/dist/Image ./AnyKernel3/
 
-      - name: Upload AnyKernel3
-        uses: actions/upload-artifact@v4
-        with:
-         name: AnyKernel3_KernelSU_Next_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
-         path: ./AnyKernel3/*
+      #- name: Upload AnyKernel3
+      #  uses: actions/upload-artifact@v4
+       # with:
+        # name: AnyKernel3_KernelSU_Next_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
+         #path: ./AnyKernel3/*
          
       - name: Upload Image
         uses: actions/upload-artifact@v4
