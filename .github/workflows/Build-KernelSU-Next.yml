@@ -50,7 +50,7 @@ jobs:
       - name: Configure Git
         run: |
          git config --global user.name "build"
-         git config --global user.email "Mr_xix520@outlook.com"
+         git config --global user.email "3436378798@qq.com"
 
       - name: Install dependencies
         run: |
@@ -66,7 +66,7 @@ jobs:
       - name: Initialize repo and sync
         run: |
          mkdir kernel_workspace && cd kernel_workspace
-         repo init -u https://github.com/XIXaa/Action-KernelSU-Next.git -b refs/heads/main -m ${{ github.event.inputs.FEIL }}.xml --depth=1
+         repo init -u https://github.com/OnePlusOSS/kernel_manifest.git -b refs/heads/oneplus/${{ github.event.inputs.CPU }} -m ${{ github.event.inputs.FEIL }}.xml --depth=1
          repo sync
          rm kernel_platform/common/android/abi_gki_protected_exports_* || echo "No protected exports!"
          rm kernel_platform/msm-kernel/android/abi_gki_protected_exports_* || echo "No protected exports!"
@@ -121,17 +121,17 @@ jobs:
          cd kernel_workspace
          ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} gki
          
-      #- name: Make AnyKernel3
-       # run: |
-       #  git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1
-       #  rm -rf ./AnyKernel3/.git
-        # cp kernel_workspace/kernel_platform/out/msm-kernel-${{ github.event.inputs.CPUD }}-gki/dist/Image ./AnyKernel3/
+      - name: Make AnyKernel3
+        run: |
+         git clone https://github.com/Kernel-SU/AnyKernel3 --depth=1
+         rm -rf ./AnyKernel3/.git
+         cp kernel_workspace/kernel_platform/out/msm-kernel-${{ github.event.inputs.CPUD }}-gki/dist/Image ./AnyKernel3/
 
-      #- name: Upload AnyKernel3
-      #  uses: actions/upload-artifact@v4
-       # with:
-        # name: AnyKernel3_KernelSU_Next_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
-         #path: ./AnyKernel3/*
+      - name: Upload AnyKernel3
+        uses: actions/upload-artifact@v4
+        with:
+         name: AnyKernel3_KernelSU_Next_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}
+         path: ./AnyKernel3/*
          
       - name: Upload Image
         uses: actions/upload-artifact@v4
