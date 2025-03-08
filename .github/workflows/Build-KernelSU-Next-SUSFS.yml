@@ -255,7 +255,7 @@ jobs:
         if: github.event.inputs.CPU == 'sm8650' 
         run: |
          cd kernel_workspace
-         ./kernel_platform/build_with_bazel.py -t ${{ github.event.inputs.CPUD }} gki
+         LTO=thin ./kernel_platform/oplus/build/oplus_build_kernel.sh ${{ github.event.inputs.CPUD }} gki
           
       - name: Fallback build kernel
         if: github.event.inputs.CPU != 'sm8650' 
