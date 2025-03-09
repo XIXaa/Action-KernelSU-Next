@@ -91,7 +91,7 @@ jobs:
            git clone https://github.com/TheWildJames/kernel_patches.git
            cd kernel_platform
            cp ../kernel_patches/next/0001-kernel-patch-susfs-v1.5.5-to-KernelSU-Next-v1.0.5.patch ./KernelSU-Next/
-           cp ../kernel_patches/next/next_hooks.patch ./KernelSU-Next/
+           cp ../kernel_patches/next/next_hooks.patch ./KernelSU-Next/common
            cp ../susfs4ksu/kernel_patches/50_add_susfs_in_gki-${{ github.event.inputs.ANDROID_VERSION }}-${{ github.event.inputs.KERNEL_VERSION }}.patch ./common/
            cp ../susfs4ksu/kernel_patches/fs/* ./common/fs/
            cp ../susfs4ksu/kernel_patches/include/linux/* ./common/include/linux/
