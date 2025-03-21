@@ -9,27 +9,27 @@ on:
       model:
         description: "OP-ACE-5"
         required: true
-        type: string
+        default: "OP-ACE-5"
       soc:
         description: "pineapple"
         required: true
-        type: string
+        default: "pineapple"
       branch:
         description: "oneplus/sm8650"
         required: true
-        type: string
+        default: "oneplus/sm8650"
       manifest:
         description: "oneplus_ace5.xml"
         required: true
-        type: string
+        default: "oneplus_ace5.xml"
       android_version:
         description: "android14"
         required: true
-        type: string
+        default: "android14"
       kernel_version:
         description: "6.1"
         required: true
-        type: string
+        default: "6.1"
   
 jobs:
   build-kernel-oneplus-kernelsu-susfs:
