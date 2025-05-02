@@ -99,9 +99,11 @@ jobs:
           
           echo "Adding KernelSU..."
           curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
-          #cd ./KernelSU-Next/kernel
+          cd ./KernelSU-Next
+          cp ../../../kernel_patches/next/manager.patch ./
+          patch -p1 < manager.patch || true
           #sed -i 's/ccflags-y += -DKSU_VERSION=16/ccflags-y += -DKSU_VERSION=12000/' ./Makefile
-          KSU_VERSION=$(cd ./KernelSU-Next/kernel && git describe --tags --abbrev=0)
+          KSU_VERSION=$(cd ./kernel && git describe --tags --abbrev=0)
           echo "KSUVER=${KSU_VERSION}" >> $GITHUB_ENV
 
       - name: Apply SUSFS Patches
@@ -119,8 +121,8 @@ jobs:
           cd ./KernelSU-Next
           
           echo "Applying next SUSFS patches..."
-          cp ../../../kernel_patches/next/0001-kernel-patch-susfs-v1.5.5-to-KernelSU-Next-v1.0.5.patch ./
-          patch -p1 --forward < 0001-kernel-patch-susfs-v1.5.5-to-KernelSU-Next-v1.0.5.patch || true
+          cp ../../../kernel_patches/next/kernel-patch-susfs-v1.5.7-to-KernelSU-Next.patch ./
+          patch -p1 --forward < kernel-patch-susfs-v1.5.7-to-KernelSU-Next.patch || true
           
           # Change to common directory and apply SUSFS patch
           cd ../common
