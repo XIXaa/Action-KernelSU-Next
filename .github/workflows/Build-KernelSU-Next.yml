@@ -100,10 +100,10 @@ jobs:
           echo "Adding KernelSU..."
           curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           cd ./KernelSU-Next
-          cp ../../../kernel_patches/next/manager.patch ./
+          #cp ../../../kernel_patches/next/manager.patch ./
           cp ../../../kernel_patches/next/syscall_hooks.patch ./
           patch -p1 --fuzz=3 < ./syscall_hooks.patch ||true
-          patch -p1 < manager.patch || true
+          #patch -p1 < manager.patch || true
           #sed -i 's/ccflags-y += -DKSU_VERSION=16/ccflags-y += -DKSU_VERSION=12000/' ./Makefile
           KSU_VERSION=$(cd ./kernel && git describe --tags --abbrev=0)
           echo "KSUVER=${KSU_VERSION}" >> $GITHUB_ENV
