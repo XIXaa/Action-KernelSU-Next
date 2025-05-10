@@ -106,7 +106,7 @@ jobs:
           #cp ../../../kernel_patches/next/syscall_hooks.patch ./
           #patch -p1 --fuzz=3 < ./syscall_hooks.patch || true
           #sed -i 's/ccflags-y += -DKSU_VERSION=16/ccflags-y += -DKSU_VERSION=12000/' ./Makefile
-          KSU_VERSION=$(cd ./kernel && git describe --tags --abbrev=0)
+          KSU_VERSION=$(cd ./KernelSU-Next/kernel && git describe --tags --abbrev=0)
           echo "KSUVER=${KSU_VERSION}" >> $GITHUB_ENV
 
       - name: Apply SUSFS Patches
