@@ -98,7 +98,7 @@ jobs:
           cd "$CONFIG/kernel_platform"
           
           echo "Adding KernelSU..."
-          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s
           #cd ./KernelSU-Next
           #cp ../../../kernel_patches/next/manager.patch ./
           #patch -p1 < manager.patch || true
